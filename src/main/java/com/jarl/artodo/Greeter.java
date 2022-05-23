@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController("/")
-public class Home {
+public class Greeter {
 
     @GetMapping
-    public String home() {
+    public String greeter() {
         return "artodo";
     }
 }
