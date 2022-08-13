@@ -1,5 +1,7 @@
 package com.jarl.artodo.shared.domain;
 
+import com.jarl.artodo.category.domain.CategoryId;
+
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
