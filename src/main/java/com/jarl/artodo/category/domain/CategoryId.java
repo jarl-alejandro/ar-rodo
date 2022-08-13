@@ -12,6 +12,10 @@ public class CategoryId extends Identifier {
         super(value);
     }
 
+    public CategoryId(String value) {
+        super(UUID.fromString(value));
+    }
+
     public static CategoryId generateCategoryId() {
         return new CategoryId(UUID.randomUUID());
     }

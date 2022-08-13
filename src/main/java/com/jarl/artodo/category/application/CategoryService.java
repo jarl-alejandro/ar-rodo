@@ -14,22 +14,25 @@ public class CategoryService {
         this.repository = repository;
     }
 
-    public void create(CategoryId id, CategoryName name, CategoryDescription description, CategoryEmoji emoji) {
+    public void create(CategoryDTO categoryDTO) {
+        CategoryId id = CategoryId.generateCategoryId();
+        CategoryName name = new CategoryName(categoryDTO.getName());
+        CategoryDescription description = new CategoryDescription(categoryDTO.getDescription());
+        CategoryEmoji emoji = new CategoryEmoji(categoryDTO.getEmoji());
+
         Category category = Category.create(id, name, description, emoji);
         repository.save(category);
     }
 
-    public CategoryResponse findById(CategoryId id) throws Exception {
-         return repository.findById(id)
-            .map(CategoryResponse::fromAggregate)
+    public CategoryDTO findById(String id) throws Exception {
+         return repository.findById(new CategoryId(id))
+            .map(CategoryDTO::mapperCategoryDTO)
             .orElseThrow(() -> new Exception("category no exist"));
     }
 
-    public CategoriesResponse list() {
-        List<CategoryResponse> categories = repository.list().stream()
-            .map(CategoryResponse::fromAggregate)
+    public List<CategoryDTO> list() {
+        return repository.list().stream()
+            .map(CategoryDTO::mapperCategoryDTO)
             .collect(Collectors.toList());
-
-        return new CategoriesResponse(categories);
     }
 }

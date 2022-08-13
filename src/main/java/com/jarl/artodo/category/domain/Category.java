@@ -15,15 +15,17 @@ public final class Category {
         this.description = description;
         this.emoji = emoji;
     }
-
-    public Category() {
+    public Category () {
         this.id = null;
         this.name = null;
         this.description = null;
         this.emoji = null;
     }
 
-    public static Category create(CategoryId id, CategoryName name, CategoryDescription description, CategoryEmoji emoji) {
+    public static Category create(CategoryId id,
+                                  CategoryName name,
+                                  CategoryDescription description,
+                                  CategoryEmoji emoji) {
         return new Category(id, name, description, emoji);
     }
 

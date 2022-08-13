@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CategoryRepository {
-    public void save(Category category);
-    public Optional<Category> findById(CategoryId id);
-    public List<Category> list();
+    void save(Category category);
+    Optional<Category> findById(CategoryId id);
+    List<Category> list();
 }

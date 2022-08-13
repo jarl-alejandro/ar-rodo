@@ -1,11 +1,10 @@
-package com.jarl.artodo.category.infrastructure;
+package com.jarl.artodo.category.infrastructure.persistence;
 
 import com.jarl.artodo.category.domain.*;
 import com.jarl.artodo.shared.domain.Service;
 
 import java.util.*;
 
-@Service
 public class InMemoryCategoryRepository implements CategoryRepository {
     private HashMap<UUID, Category> categories = new HashMap<>();
 
